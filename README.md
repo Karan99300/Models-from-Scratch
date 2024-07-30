@@ -5,4 +5,5 @@ Models Implemented so far:
 2)Swin Transformer,
 3)Convolutional Transformer,
 4)MobileViT,
-5)MobileViTv2
+5)MobileViTv2,
+6)DETR
