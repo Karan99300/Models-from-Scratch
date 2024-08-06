@@ -38,7 +38,7 @@ class PositionalEncoding(nn.Module):
     
     def forward(self,x):
         return x + einops.repeat(
-            self.pe_mat.to(x.device), pattern="l d -> b l d", b=x.size(0),
+            self.pe_matrix.to(x.device), pattern="l d -> b l d", b=x.size(0),
         )[:, : x.size(1), :]
 
 class Attention(nn.Module):
@@ -161,7 +161,7 @@ class DecoderLayer(nn.Module):
             self.feedforward,embed_dim,dropout
         )
     
-    def forward(self,q,encoder_memory,output_positional_encoding):
+    def forward(self,q,output_positional_encoding,encoder_memory):
         x=self.self_attention_residual_connection(skip=q,x=q,output_positional_encoding=output_positional_encoding)
         x=self.encoder_decoder_attention_residual_connection(skip=x,x=x,output_positional_encoding=output_positional_encoding,encoder_memory=encoder_memory)
         x=self.feedforward_residual_connection(skip=x,x=x)
