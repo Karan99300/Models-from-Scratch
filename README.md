@@ -7,4 +7,5 @@ Models Implemented so far:
 4)MobileViT,
 5)MobileViTv2,
 6)DETR,
-7)ConvNext
+7)ConvNext,
+8)Maskformer
