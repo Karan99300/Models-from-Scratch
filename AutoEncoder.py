@@ -11,6 +11,8 @@ from torch.utils.data import sampler
 import numpy as np
 import matplotlib.colors as mcolors
 
+from tqdm import tqdm
+
 lr=0.0005
 batch_size=256
 num_epochs=30
@@ -84,8 +86,6 @@ def get_dataloaders_mnist(batch_size, num_workers=0, train_transforms=None, test
     return train_loader, valid_loader, test_loader
 
 train_loader, valid_loader, test_loader = get_dataloaders_mnist(batch_size,num_workers=2)
-
-from tqdm import tqdm
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
