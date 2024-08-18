@@ -11,3 +11,4 @@ Models Implemented so far:
 8)Maskformer,
 9)CLIP using ViT as Image Encoder and a standard transformer encoder as Text Encoder,
 10)AutoEncoder,
+11)Variantional AutoEncoder,
