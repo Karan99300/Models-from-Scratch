@@ -10,3 +10,4 @@ Models Implemented so far:
 7)ConvNext,
 8)Maskformer,
 9)CLIP using ViT as Image Encoder and a standard transformer encoder as Text Encoder,
+10)AutoEncoder,
