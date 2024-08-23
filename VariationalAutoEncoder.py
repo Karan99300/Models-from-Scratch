@@ -32,9 +32,9 @@ class VariationalAutoEncoder(nn.Module):
         self.device = device
         self.encoder = nn.Sequential(
             nn.Linear(input_dim,hidden_dim),
-            nn.ReLU(),
+            nn.LeakyReLU(),
             nn.Linear(hidden_dim,latent_dim),
-            nn.ReLU()
+            nn.LeakyReLU()
         )
         
         self.mean_layer=nn.Linear(latent_dim,2)
@@ -42,9 +42,9 @@ class VariationalAutoEncoder(nn.Module):
         
         self.decoder= nn.Sequential(
             nn.Linear(2,latent_dim),
-            nn.ReLU(),
+            nn.LeakyReLU(),
             nn.Linear(latent_dim,hidden_dim),
-            nn.ReLU(),
+            nn.LeakyReLU(),
             nn.Linear(hidden_dim,input_dim),
             nn.Sigmoid()
         )

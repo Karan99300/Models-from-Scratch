@@ -38,11 +38,11 @@ class AutoEncoder(nn.Module):
         super().__init__()
         self.encoder=nn.Sequential(
             nn.Conv2d(1,32,kernel_size=3,padding=1),
-            nn.ReLU(),
+            nn.LeakyReLU(),
             nn.Conv2d(32,64,kernel_size=3,stride=2,padding=1),
-            nn.ReLU(),
+            nn.LeakyReLU(),
             nn.Conv2d(64,64,kernel_size=3,stride=2,padding=1),
-            nn.ReLU(),
+            nn.LeakyReLU(),
             nn.Conv2d(64,64,kernel_size=3,stride=1,padding=1),
             nn.Flatten(),
             nn.Linear(3136,2)
@@ -52,11 +52,11 @@ class AutoEncoder(nn.Module):
             nn.Linear(2,3136),
             Reshape(-1,64,7,7),
             nn.ConvTranspose2d(64,64,kernel_size=3,padding=1),
-            nn.ReLU(),
+            nn.LeakyReLU(),
             nn.ConvTranspose2d(64,64,kernel_size=3,stride=2,padding=1),
-            nn.ReLU(),
+            nn.LeakyReLU(),
             nn.ConvTranspose2d(64,32,kernel_size=3),
-            nn.ReLU(),
+            nn.LeakyReLU(),
             nn.ConvTranspose2d(32,1,kernel_size=3),
             Trim(),
             nn.Sigmoid()
