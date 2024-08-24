@@ -13,3 +13,4 @@ Models Implemented so far:
 10)AutoEncoder,
 11)Variantional AutoEncoder,
 12)GAN,
+13)DCGAN,

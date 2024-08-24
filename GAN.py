@@ -1,7 +1,6 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
-import torchvision
 import torchvision.datasets as datasets
 from torch.utils.data import DataLoader
 import torchvision.transforms as transforms
@@ -66,13 +65,15 @@ opt_disc = optim.Adam(disc.parameters(), lr=lr)
 opt_gen = optim.Adam(gen.parameters(), lr=lr)
 criterion = nn.BCELoss()
 
+gen.train()
+disc.train()
+
 for epoch in tqdm(range(epochs), desc='Epochs'):
     for batch_idx, (real, _) in tqdm(enumerate(loader), desc="Batches", leave=False):
         real=real.view(-1,784).to(device)
         b_size=real.shape[0]
         noise=torch.randn(b_size,z_dim).to(device)
         
-        noise = torch.randn(batch_size, z_dim).to(device)
         fake = gen(noise)
         disc_real = disc(real).view(-1)
         lossD_real = criterion(disc_real, torch.ones_like(disc_real))
