@@ -16,3 +16,4 @@ Models Implemented so far:
 13)DCGAN,
 14)WGAN,
 15)WGAN-GP,
+16)Conditional GAN,
