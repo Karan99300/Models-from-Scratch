@@ -15,3 +15,4 @@ Models Implemented so far:
 12)GAN,
 13)DCGAN,
 14)WGAN,
+15)WGAN-GP,
