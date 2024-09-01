@@ -18,3 +18,5 @@ Models Implemented so far:
 15)WGAN-GP,
 16)Conditional GAN,
 17)Pix2Pix,
+18)CycleGAN,
+19)PROGAN
