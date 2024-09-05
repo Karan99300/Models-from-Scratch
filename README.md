@@ -20,4 +20,5 @@ Models Implemented so far:
 17)Pix2Pix,
 18)CycleGAN,
 19)PROGAN,
-20)SRGAN
+20)SRGAN,
+21)StyleGAN1,
