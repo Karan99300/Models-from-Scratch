@@ -22,3 +22,4 @@ Models Implemented so far:
 19)PROGAN,
 20)SRGAN,
 21)StyleGAN1,
+22)DDPM diffusion model,
