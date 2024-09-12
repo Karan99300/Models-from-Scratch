@@ -23,3 +23,4 @@ Models Implemented so far:
 20)SRGAN,
 21)StyleGAN1,
 22)DDPM diffusion model,
+23)RCNN,
