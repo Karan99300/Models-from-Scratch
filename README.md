@@ -25,4 +25,5 @@ Models Implemented so far:
 22)DDPM diffusion model,
 23)RCNN,
 24)SPPNet,
-25)
+25)FasterRCNN,
+26)
