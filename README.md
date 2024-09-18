@@ -26,4 +26,5 @@ Models Implemented so far:
 23)RCNN,
 24)SPPNet,
 25)FasterRCNN,
-26)
+26)FPN,
+27)
