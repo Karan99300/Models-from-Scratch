@@ -1,5 +1,7 @@
 # Models-from-Scratch
 
+This repository contains implementations of various models, which I have followed from different sources to gain a comprehensive understanding of their code structures.
+
 Models Implemented so far:
 1)Vision Transformer for image classification,
 2)Swin Transformer,
@@ -27,4 +29,4 @@ Models Implemented so far:
 24)SPPNet,
 25)FasterRCNN,
 26)FPN,
-27)
+27)YOLOv1,
