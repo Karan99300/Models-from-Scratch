@@ -29,3 +29,30 @@ class SelfAttention(nn.Module):
         attention_output = rearrange(attention_output, 'b h s d -> b s (h d)')
         return self.output_proj(attention_output)
     
+class CrossAttention(nn.Module):
+    def __init__(self, num_heads, embed_dim, cross_dim, in_proj_bias=True, out_proj_bias=True):
+        super().__init__()
+        self.q_proj = nn.Linear(embed_dim, embed_dim, bias=in_proj_bias)
+        self.k_proj = nn.Linear(cross_dim, embed_dim, bias=in_proj_bias)
+        self.v_proj = nn.Linear(cross_dim, embed_dim, bias=in_proj_bias)
+        self.output_proj = nn.Linear(embed_dim, embed_dim, bias=out_proj_bias)
+        self.num_heads = num_heads
+        self.head_dim = embed_dim//num_heads
+        
+    def forward(self, x, y):
+        b, s, embed_dim = x.shape
+        
+        q = self.q_proj(x)
+        k = self.k_proj(y)
+        v = self.v_proj(y)
+        q = rearrange(q, 'b s (h d) -> b h s d', h=self.num_heads)
+        k = rearrange(k, 'b s (h d) -> b h s d', h=self.num_heads)
+        v = rearrange(v, 'b s (h d) -> b h s d', h=self.num_heads)
+        
+        attention_scores = torch.matmul(q, k.transpose(-1,-2))
+        attention_scores /= math.sqrt(self.head_dim)
+        attention_probs = F.softmax(attention_scores, dim=-1)
+        attention_output = torch.matmul(attention_probs, v)
+        
+        attention_output = rearrange(attention_output, 'b h s d -> b s (h d)')
+        return self.output_proj(attention_output)
