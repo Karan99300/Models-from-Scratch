@@ -31,3 +31,4 @@ Models Implemented so far:
 26)FPN,
 27)YOLOv1,
 28)Stable Diffusion,
+29)LoRA,
