@@ -30,3 +30,4 @@ Models Implemented so far:
 25)FasterRCNN,
 26)FPN,
 27)YOLOv1,
+28)Stable Diffusion,
